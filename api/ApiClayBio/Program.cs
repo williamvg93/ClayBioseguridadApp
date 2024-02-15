@@ -23,7 +23,7 @@ var summaries = new[]
 
 app.MapGet("/weatherforecast", () =>
 {
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
+    var forecast = Enumerable.Range(1, 5).Select(index =>
         new WeatherForecast
         (
             DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
@@ -42,3 +42,25 @@ record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
     public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 }
+
+
+
+
+/* 
+Api
+dotnet add package AspNetCoreRateLimit --version 5.0.0
+dotnet add package AutoMapper --version 12.0.1
+dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer --version 8.0.2
+dotnet add package Asp.Versioning.Mvc --version 8.0.0
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 8.0.2
+
+Domain
+dotnet add package FluentValidation.AspNetCore --version 11.3.0
+dotnet add package itext7.pdfhtml --version 5.0.2
+dotnet add package Microsoft.EntityFrameworkCore --version 8.0.2
+
+Persistence
+dotnet add package Microsoft.EntityFrameworkCore --version 8.0.2
+dotnet add package Pomelo.EntityFrameworkCore.MySql --version 7.0.0
+
+*/
