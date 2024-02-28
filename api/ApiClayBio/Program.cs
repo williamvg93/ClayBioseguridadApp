@@ -14,6 +14,7 @@ builder.Services.AddSwaggerGen();
 
 /* Add ApplicationServicesExtencions */
 builder.Services.AddApplicationServices();
+builder.Services.ConfigureCors();
 
 /* Add AutoMapper */
 builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
@@ -53,5 +54,9 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("CorsPolicy");
+
+/* required for endpoints to function */
+app.MapControllers();
 
 app.Run();
