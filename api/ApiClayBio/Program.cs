@@ -1,3 +1,5 @@
+using System.Reflection;
+using ApiClayBio.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Persitence.Data;
 
@@ -5,8 +7,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+/* Add ApplicationServicesExtencions */
+builder.Services.AddApplicationServices();
+
+/* Add AutoMapper */
+builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
 
 
 /* Add connection to database */
