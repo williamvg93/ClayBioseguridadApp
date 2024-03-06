@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ApiClayBio.Dtos.Get.Company;
 
-public class WorkShiftDto
+public class WorkshiftDto
 {
     public int Id { get; set; }
     public string Name { get; set; }
