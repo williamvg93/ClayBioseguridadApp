@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 using Domain.Entities;
+using Domain.Entities.Authentication;
 using Domain.Entities.Company;
 using Domain.Entities.FPerson;
 using Domain.Entities.Location;
@@ -40,13 +41,12 @@ public partial class ApiClayBioContext : DbContext
     public virtual DbSet<Personcategory> Personcategories { get; set; }
 
     public virtual DbSet<Personcontact> Personcontacts { get; set; }
-
     public virtual DbSet<Persontype> Persontypes { get; set; }
-
+    public virtual DbSet<Rol> Rols { get; set; }
     public virtual DbSet<Shiftscheduling> Shiftschedulings { get; set; }
-
     public virtual DbSet<Town> Towns { get; set; }
-
+    public virtual DbSet<User> Users { get; set; }
+    public virtual DbSet<UserRol> UserRols { get; set; }
     public virtual DbSet<Workshift> Workshifts { get; set; }
 
     /*     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
