@@ -60,3 +60,6 @@ app.UseCors("CorsPolicy");
 app.MapControllers();
 
 app.Run();
+
+
+/* dotnet add package Microsoft.IdentityModel.Tokens --version 7.4.0 */
