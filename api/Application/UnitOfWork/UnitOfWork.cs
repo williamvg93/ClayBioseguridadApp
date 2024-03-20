@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.Repository.Authentication;
 using Application.Repository.Company;
 using Application.Repository.FPerson;
 using Application.Repository.Location;
 using Domain.Interfaces;
+using Domain.Interfaces.Authentication;
 using Domain.Interfaces.Company;
 using Domain.Interfaces.FPerson;
 using Domain.Interfaces.Location;
@@ -30,6 +32,8 @@ public class UnitOfWork : IUnitOfWork, IDisposable
     private IContractstatus _contractsstatus;
     private IShiftscheduling _shiftschedulings;
     private IWorkshift _workshifts;
+    private IRol _roles;
+    private IUser _users;
 
 
     public UnitOfWork(ApiClayBioContext context)
@@ -202,6 +206,28 @@ public class UnitOfWork : IUnitOfWork, IDisposable
                 _workshifts = new WorkshiftRepo(_context);
             }
             return _workshifts;
+        }
+    }
+    public IRol Roles
+    {
+        get
+        {
+            if (_roles == null)
+            {
+                _roles = new RolRepo(_context);
+            }
+            return _roles;
+        }
+    }
+    public IUser Users
+    {
+        get
+        {
+            if (_users == null)
+            {
+                _users = new UserRepo(_context);
+            }
+            return _users;
         }
     }
 

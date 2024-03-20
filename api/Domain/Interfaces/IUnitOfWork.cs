@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Domain.Interfaces.Authentication;
 using Domain.Interfaces.Company;
 using Domain.Interfaces.FPerson;
 using Domain.Interfaces.Location;
@@ -24,5 +25,7 @@ public interface IUnitOfWork
     IContractstatus Contractsstatus { get; }
     IShiftscheduling Shiftschedulings { get; }
     IWorkshift Workshifts { get; }
+    IRol Roles { get; }
+    IUser Users { get; }
     Task<int> SaveAsync();
 }

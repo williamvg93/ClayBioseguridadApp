@@ -13,4 +13,5 @@ public class User
     public string Password { get; set; }
     public ICollection<Rol> Rols { get; set; } = new HashSet<Rol>();
     public ICollection<UserRol> UsersRols { get; set; }
+    public ICollection<RefreshToken> RefreshTokens { get; set; } = new HashSet<RefreshToken>();
 }
