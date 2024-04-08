@@ -26,7 +26,7 @@ public class UserConfig : IEntityTypeConfiguration<User>
         builder.Property(p => p.Password)
        .HasColumnName("password")
        .HasColumnType("varchar")
-       .HasMaxLength(50)
+       .HasMaxLength(100)
        .IsRequired();
 
         builder.Property(p => p.Email)

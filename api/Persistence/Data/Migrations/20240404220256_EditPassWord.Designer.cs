@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persitence.Data;
 
@@ -10,9 +11,11 @@ using Persitence.Data;
 namespace Persistence.Data.Migrations
 {
     [DbContext(typeof(ApiClayBioContext))]
-    partial class ApiClayBioContextModelSnapshot : ModelSnapshot
+    [Migration("20240404220256_EditPassWord")]
+    partial class EditPassWord
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

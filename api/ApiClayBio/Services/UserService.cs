@@ -17,7 +17,7 @@ using Authorization = ApiClayBio.Helpers.Authorization;
 
 namespace ApiClayBio.Services;
 
-public class UserService
+public class UserService : IUserService
 {
     private readonly JWT _jwt;
     private readonly IUnitOfWork _unitOfWork;
@@ -33,10 +33,12 @@ public class UserService
         var user = new User
         {
             Email = registerDto.Email,
-            Name = registerDto.Name
+            Name = registerDto.Name/* ,
+            Password = registerDto.Password */
         };
 
-        user.Password = _passwordHasher.HashPassword(user, registerDto.Password); //Encrypt password
+        //Encrypt password
+        user.Password = _passwordHasher.HashPassword(user, registerDto.Password);
 
         var existingUser = _unitOfWork.Users
                                     .Find(u => u.Name.ToLower() == registerDto.Name.ToLower())
